@@ -1,0 +1,210 @@
+:root {
+	--bg-color: #f7f8fc;
+	--blue: #1269dd;
+	--subtext: #9fa2b4;
+}
+
+$open-sans: 'Open Sans';
+$text-light: #696b77;
+$pricolor: #1d8ce3;
+$gray: #efefef;
+$dgray: #2e2f31;
+$indicator: #fc531f;
+$red: #f44336;
+$blue: #30729a;
+$yellow: #fdd835;
+$green: #4caf50;
+$cyan: #26a69a;
+$grey: #8f969c;
+$black: #202122;
+$default: #1565c0;
+$white: #1565c0;
+$orange: #f6821f;
+$purple: #a87ec0;
+$color: #333;
+
+// Mixins
+@mixin bg-gradient($deg, $start-bg, $percent-st, $eng-bg, $percent-end) {
+	background: linear-gradient($deg, $start-bg $percent-st, $eng-bg $percent-end);
+}
+
+@mixin dropdown-options($top: 0px, $right: 0px) {
+	.options-dd {
+		position: absolute;
+		top: $top;
+		right: $right;
+
+		.btn {
+			background: transparent;
+			font-size: 24px !important;
+			color: #888;
+			// padding: 6px 10px;
+			line-height: 26px;
+
+			&:focus,
+			&:active,
+			&:hover {
+				background-color: transparent;
+				box-shadow: none;
+				outline: none;
+				border: none;
+				color: #333;
+			}
+		}
+
+		&.show .btn {
+			color: #333;
+		}
+
+		.dropdown-menu {
+			background: #fff;
+			border-radius: 2px;
+			padding: 5px 0;
+			box-shadow: 0 0 8px 0 #ccc;
+
+			.dropdown-item {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 13px;
+				line-height: 20px;
+				font-weight: 400;
+				padding: 6px 18px;
+				color: #646464;
+				transition: 300ms ease;
+
+				i {
+					margin-right: 5px;
+					font-size: 16px;
+				}
+
+				&:hover,
+				&:active,
+				&:focus {
+					background-color: #1269dd;
+					color: #fff;
+					outline: 0;
+
+					i {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin bg-color($bg, $bgrad1, $bgrad2, $shadow1, $shadow2) {
+	background: $bg;
+	color: #fff;
+	background-image: radial-gradient(circle at top right, $bgrad1, $bgrad2 70%);
+	box-shadow: 0px 8px 15px -3px $shadow1;
+
+	&:hover {
+		box-shadow: 0px 15px 25px 0px $shadow2;
+		transform: scale(1.05);
+		z-index: 2;
+	}
+
+	.card-pattern-title {
+		color: #fff;
+		font-weight: 500;
+	}
+
+	.mdi {
+		color: rgba(255, 255, 255, 0.9);
+	}
+}
+
+.card-pattern.card-cyan {
+	@include bg-color(#52c0d1, #88efff, #32b5d6, rgb(196, 232, 241), rgb(164, 197, 206));
+}
+
+.card-pattern.card-indigo {
+	@include bg-color(#4c64d9, #8fa1f7, #4c64d9, #cfc2ff, #a39ac5);
+}
+
+.card-pattern.card-purple1 {
+	@include bg-color(#b39ddb, #b39ddb, #8346ef, #e0b9f0, #b193bd);
+}
+
+.card-pattern.card-pink {
+	@include bg-color(#f785d5, #ff9ae1, #d22da1, #f9a2df, #ffcaef);
+}
+
+.card-pattern.card-mustard {
+	@include bg-color(#ddc174, #efd07e, #ec8e23, #f5e0ba, #c5b89f);
+}
+
+.card-pattern.card-blue-1 {
+	@include bg-color(#68a4ea, #7bb8ff, #2e67a9, #bad1f5, #9faec5);
+}
+
+.card-pattern.card-red-1 {
+	@include bg-color(#dd7494, #fba5a5, #f34c85, #ffc1d1, #ffc1d1);
+}
+
+.card-pattern.card-red {
+	@include bg-color(#dd7474, #fd9090, #e23305, #ffc1d1, #ffc1d1);
+}
+
+.card-pattern.card-green {
+	@include bg-color(#91cc83, #aeea6a, #71a738, #c1e2bc, #9eb99a);
+}
+
+.card-pattern.card-green-1 {
+	@include bg-color(#91cc83, #94dcb0, #348c2c, #c1e2bc, #9eb99a);
+}
+
+.card-pattern.card-purple2 {
+	@include bg-color(#ba68c8, #ed83ff, #9a48a9, #e8b9ec, #c0a0c3);
+}
+
+.card-pattern.card-teal {
+	@include bg-color(#68aac8, #9ed6f1, #169ab1, #b5ddf1, #b5ddf1);
+}
+
+.card-pattern.card-lime {
+	@include bg-color(#dce775, #dce775, #949825, #d4d4a2, #b1b18e);
+}
+
+.card-pattern.card-yellow {
+	@include bg-color(#dce775, #e7df75, #dac139, #d4d4a2, #b1b18e);
+}
+
+.card-pattern.card-ash {
+	@include bg-color(#7887aa, #8c9fcc, #47577b, #94a7d1, #acc0ec);
+}
+
+.card-pattern.card-nelson {
+	@include bg-color(#ffac92, #ffac92, #ea6a41, #ffbca7, #fdb8a2);
+}
+
+.card-pattern.card-strain {
+	@include bg-color(#fb9da6, #ff9ba5, #e63e4e, #ffb2ba, #ffc5cb);
+}
+
+// }
+.no-space-x {
+	padding: 0;
+}
+
+
+//Main
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	font-family: $open-sans;
+	color: #fff;
+}

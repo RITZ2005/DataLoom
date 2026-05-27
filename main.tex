@@ -1,0 +1,1026 @@
+\documentclass[12pt,a4paper]{report}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+
+% ── Hyperref Setup ────────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black
+}
+
+% ── Spacing ───────────────────────────────────────────────────────────────────
+\onehalfspacing
+
+
+
+% ── Chapter Title Formatting ──────────────────────────────────────────────────
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\centering}
+  {\chaptertitlename\ \thechapter}{12pt}{\Large}
+\titlespacing*{\chapter}{0pt}{-10pt}{20pt}
+
+% ── Listings (code style) ─────────────────────────────────────────────────────
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10}
+}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+\pagenumbering{gobble}  % no page numbers on cover
+% ═══════════% ══════════════════════════════════════════════════════════════
+%  TITLE PAGE
+% ══════════════════════════════════════════════════════════════
+\begin{titlepage}
+    \centering
+    
+    {\large \textbf{K. K. Wagh Institute of Engineering Education \& Research, Nashik}}\\[0.2cm]
+    {\small (Autonomous Institute affiliated to Savitribai Phule Pune University)}\\[1.5cm]
+    
+   % College Logo
+    \includegraphics[width=4cm]{college_logo.png}\\[1cm]
+    
+    {\Huge \textbf{Internship Report}}\\[0.5cm]
+    {\large On}\\[0.5cm]
+    
+    {\Large \textbf{AI Automation and Industrial Visualization System}}\\[1.5cm]
+    
+    {\large By}\\[0.5cm]
+    {\large \textbf{Samrudhi Pravin Pawar}}\\[0.3cm]
+    
+    Roll No.: 33\\
+    Class: B.Tech AIDS B\\[1cm]
+    
+    \textbf{Under Guidance of}\\[0.3cm]
+    
+    \textbf{Miss. Vidya Dhage}\\
+    (Team Lead, Combat Solutions AI)\\[0.5cm]
+    
+    and\\[0.5cm]
+    
+    \textbf{Prof. Pranali Shinde}\\
+    (Asst. Professor)\\[1cm]
+    
+    Department of \textbf{Artificial Intelligence and Data Science Engineering}\\[0.5cm]
+    
+    Academic Year: \textbf{2025-26}
+    
+\end{titlepage}
+% ══════════════════════════════════════════════════════════════
+%  FRONT MATTER
+% ══════════════════════════════════════════════════════════════
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% ── Certificate ───────────────────────────────────────────────
+\chapter*{Certificate}
+\addcontentsline{toc}{chapter}{Certificate}
+
+This is certified that Internship Report entitled \textbf{``AI Automation and Industrial Visualization System''} submitted by \textbf{``Samrudhi Pravin Pawar''} of B.Tech Artificial Intelligence and Data Science for the work completed at \textbf{``Combat Solutions AI, Nashik''} is approved by us for submission. It is also certified that, to the best of our knowledge, the report represents actual work carried out by the student in the industry.
+
+\vspace{3cm}
+
+\begin{minipage}[t]{0.45\textwidth}
+\vspace{0.3cm}
+\textbf{Prof. Pranali Shinde}\\
+Internship Institute Guide\\
+Assistant Professor\\
+Department of Artificial Intelligence and Data Science
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\includegraphics[width=3cm]{sign.png}\\
+\textbf{Miss. Vidya Dhage}\\
+Internship Industry Guide\\
+Designation: Team Lead\\
+Name of Industry: Combat Solutions AI
+\end{minipage}
+
+\vspace{3cm}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Prof. Dr. D. V. Medhane}\\
+Head,\\
+Department of Artificial Intelligence \\
+and Data Science
+
+\vspace{1cm}
+
+\textbf{External Examiner}\\
+Name: \underline{\hspace{4cm}}\\
+Company Name: \underline{\hspace{4cm}}\\
+Designation: \underline{\hspace{4cm}}\\
+Signature with date: \underline{}\\
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Prof. Dr. K. N. Nandurkar}\\
+Director\\
+K. K. Wagh Institute of Engineering Education \& Research, Nashik
+\end{minipage}
+
+% ── Certificate of Internship ─────────────────────────────────
+\newpage
+\chapter*{Certificate of Internship}
+\addcontentsline{toc}{chapter}{Certificate of Internship}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth, keepaspectratio]{"offer letter.png"}
+    \caption{Offer Letter -- Combat Solutions AI}
+    \label{fig:offer_letter}
+\end{figure}
+
+% ── Acknowledgement ───────────────────────────────────────────
+\newpage
+\chapter*{Acknowledgement}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+
+First I would like to thank \textbf{Miss. Vidya Dhage, Team Lead at Combat Solutions AI}, for giving me the opportunity to do an internship within the organization. I would also like to thank \textbf{ParentHook and Transition Software, Pune}, where I initially started my internship journey and gained valuable learning experience in the AI-ML domain.
+
+I also would like to thank all the people that worked along with me at \textbf{Combat Solutions AI}. With their patience and openness, they created an enjoyable and professional working environment. It is indeed with a great sense of pleasure and immense gratitude that I acknowledge the help of these individuals.
+
+I am highly indebted to \textbf{Prof. Pranali Shinde} for the extending support to accomplish this internship. I would like to thank \textbf{Mrs. U. M. Rane} and \textbf{Prof. Dr. D. V. Medhane} for their guidance throughout my internship.
+
+I would like to thank \textbf{Dr. K. N. Nandurkar}, Director for his support and advice to complete internship in above said organization.
+
+I am extremely grateful to my department staff members and friends who helped me in successful completion of this internship.
+
+
+\vspace{2cm}
+\begin{flushright}
+\textbf{Samrudhi Pravin Pawar}\\
+B.Tech Artificial Intelligence and Data Science\\
+Roll No.\ 33
+\end{flushright}
+
+% ── Declaration ───────────────────────────────────────────────
+\newpage
+\chapter*{Declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+
+This is to certify that Internship Report submitted by me is an outcome of my independent and original work completed at \textbf{Combat Solutions AI, Nashik} and \textbf{ParentHook and Transition Software, Pune}. I have duly acknowledged all the sources from which the ideas and extracts have been taken. The Internship Report is free from any plagiarism and has not been submitted elsewhere for publication.
+
+\vspace{2cm}
+\begin{flushright}
+\textbf{Samrudhi Pravin Pawar}\\
+B.Tech Artificial Intelligence and Data Science\\
+Roll No.\ 33
+\end{flushright}
+
+\vspace{1cm}
+\noindent Date: 23/05/2026\\
+Place: Nashik
+
+% ── Abstract ──────────────────────────────────────────────────
+\newpage
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This report presents the knowledge and practical experience gained during a one-month online internship at \textbf{ParentHook and Transition Software, Pune} and an ongoing six-month offline internship at \textbf{Combat Solutions AI, Nashik}. The internship focused on Artificial Intelligence, backend development, automation systems, and intelligent workflow development using modern technologies and software engineering practices.
+
+During the internship, various activities such as AI application development, REST API creation, backend integration, automation workflows, and intelligent system implementation were performed. Different technologies and frameworks related to Artificial Intelligence, backend systems, and workflow automation were studied and implemented through real-world projects. The internship also involved understanding software architecture, structured workflow execution, debugging techniques, testing methodologies, and optimization approaches for improving system performance and reliability.
+
+Practical exposure was gained in chatbot systems, backend APIs, automation pipelines, deployment workflows, and scalable application development. The work also included studying data processing methods, system integration approaches, and intelligent automation techniques used for improving efficiency and reducing manual effort in software systems. Various technical challenges related to workflow management, backend communication, and automation reliability were addressed through continuous testing, debugging, and refinement.
+
+\vspace{0.5cm}
+\noindent\textbf{Key Words:} Artificial Intelligence, Backend Development, Automation, LangChain, XAML, REST APIs.
+
+% ── Table of Contents ─────────────────────────────────────────
+\newpage
+\tableofcontents
+
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% ══════════════════════════════════════════════════════════════
+%  MAIN MATTER
+% ══════════════════════════════════════════════════════════════
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ──────────────────────────────────────────────────────────────
+%  CHAPTER 1 – INTRODUCTION
+% ──────────────────────────────────────────────────────────────
+\chapter{Introduction}
+
+\section{Introduction}
+
+Artificial Intelligence and Data Science have become essential in modern software systems for enabling automation, intelligent decision-making, and efficient management of complex workflows. Advanced AI applications help organizations process large volumes of structured and unstructured data, identify meaningful patterns, and support business operations through intelligent and scalable solutions.
+
+The focus of this internship was on understanding and developing intelligent systems using modern AI technologies and automation frameworks. The internship involved working on real-world projects related to backend API development, industrial visualization systems, Generative AI workflows, and automation pipelines. Initial exposure was gained at ParentHook and Transition Software, Pune, where concepts related to Flask APIs, LangChain, LangGraph, Docker, MLOps, and AI-based application development were explored. Later, at Combat Solutions AI, practical work was carried out on enterprise-level industrial automation projects, intelligent chatbot systems, Retrieval-Augmented Generation (RAG), and backend automation modules.
+
+\section{Objectives}
+
+The objectives of this internship are to:
+\begin{itemize}[leftmargin=1.5cm]
+    \item Understand real-world AI and backend development workflows.
+    \item Gain practical exposure to industrial automation systems.
+    \item Develop REST APIs and backend modules.
+    \item Learn debugging, testing, and optimization techniques.
+    \item Understand XAML-to-JSON and PDIX conversion pipelines.
+    \item Improve analytical thinking and problem-solving skills.
+    \item Gain industry-level software development experience.
+\end{itemize}
+
+\section{Scope for Learning}
+
+The internship provided a comprehensive foundation in modern AI and backend development. The scope of learning included the full development lifecycle — from understanding requirements and studying industrial systems to designing automation pipelines, implementing AI workflows, building backend APIs, and performing testing and debugging.
+
+Practical experience was gained in LangChain, RAG systems, Flask/FastAPI, REST API development, and industrial XAML-to-JSON/PDIX conversion workflows. Exposure to Python-based automation, Generative AI concepts, AI chatbot development, and cloud services further enhanced technical skills. Participation in company projects such as the CENTUM DCS conversion pipeline, Clarify AI Siemens, and the Atlan project broadened understanding of enterprise AI development.
+
+\section{Organization of the Internship Report}
+
+The internship report is organized as follows:
+
+\textbf{Chapter 1} presents the introduction to the internship, including its objectives and scope of learning.
+
+\textbf{Chapter 2} provides an overview of the organizations -- ParentHook and Transition Software, Pune and Combat Solutions AI, Nashik -- where the internship was conducted.
+
+\textbf{Chapter 3} describes the problem studied and the system implemented, including the tools, technologies, and development activities undertaken during the internship.
+
+\textbf{Chapter 4} presents the results, analysis, and recommendations derived from the internship experience.
+
+\textbf{Chapter 5} provides the conclusion and future scope based on overall learning outcomes.
+
+% ──────────────────────────────────────────────────────────────
+%  CHAPTER 2 – OVERVIEW OF COMPANY
+% ──────────────────────────────────────────────────────────────
+\chapter{Overview of the Company}
+
+\section{Introduction}
+
+\textbf{ParentHook \& Transition Software, Pune} is a technology-focused organization working in AI-ML application development and backend systems. The company provides exposure to real-world software engineering concepts involving AI workflows, API development, backend integration, and deployment systems. During the internship period, projects related to Dynamic Quiz Generation, AI-based Website Generation, Multi-tenant Systems, LangChain workflows, MLOps concepts, and Docker deployment were explored and implemented.
+
+\textbf{Combat Solutions AI} is an advanced technology company focused on Artificial Intelligence, enterprise automation systems, backend engineering, and intelligent workflow development. The company specializes in developing production-ready Generative AI systems, industrial automation solutions, intelligent data processing applications, and scalable backend architectures for enterprise environments. Combat Solutions AI emphasizes secure, governed, and scalable AI solutions designed for real-world business and industrial applications.
+
+\section{Brief History}
+
+\textbf{ParentHook and Transition Software, Pune} is a technology-based organization working in the domain of Artificial Intelligence, backend development, and software solutions. The company focuses on developing intelligent digital platforms and scalable software applications using modern technologies and automation techniques. The organization provides practical exposure to AI-based application development, REST APIs, backend workflows, and Generative AI systems. During the internship period, it provided opportunities to work on real-world projects involving Flask APIs, LangChain, LangGraph, Docker, MLOps concepts, and AI-powered backend systems.
+
+\noindent\textbf{Key Highlights of ParentHook and Transition Software:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Location: Pune, Maharashtra
+    \item Domain: Artificial Intelligence and Software Development
+    \item Core Focus: AI-powered applications, backend systems, and intelligent automation
+    \item Technologies Used: Python, Flask, FastAPI, Docker, LangChain, LangGraph, REST APIs
+    \item Key Solutions: Dynamic Quiz Generator, AI-based Website Generator, Multi-tenant Systems, Conversational AI Applications
+    \item Learning Areas: MLOps, Prompt Engineering, API Integration, Deployment Workflows
+\end{itemize}
+
+\textbf{Combat Solutions AI} was established with the vision of building enterprise-grade Artificial Intelligence systems that can be securely adopted and scaled across industries. Founded in Nashik, Maharashtra, the company expanded its operations from Nashik to Mumbai and international business environments including Sydney. The organization focuses on bridging the gap between AI experimentation and real-world enterprise deployment by developing production-ready AI systems with strong emphasis on security, governance, scalability, and reliability.
+
+\noindent\textbf{Key Highlights of Combat Solutions AI:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Established: Enterprise AI company based in Nashik, Maharashtra
+    \item Domain: Generative AI, Industrial Automation, and Enterprise Software Systems
+    \item Core Focus: Production-ready Generative AI systems and intelligent automation solutions
+    \item Technologies Used: Python, LangChain, RAG, Flask/FastAPI, Docker, APIs, XAML Processing
+    \item Key Solutions: Industrial DCS Automation, XAML to PDIX Conversion Pipeline, AI Chatbots, Backend Automation Systems
+    \item Approach: Data-centric AI engineering, enterprise readiness, security, and governed AI systems
+    \item Growth: Expanding globally with enterprise AI and automation solutions across multiple industries
+\end{itemize}
+
+\section{Brief Overview}
+
+\subsection{Industry Overview}
+
+ParentHook and Transition Software operates in the domain of Artificial Intelligence, backend development, and intelligent software systems. The organization focuses on developing AI-powered applications, multi-tenant backend systems, and automation-based software solutions using tools such as Flask, Docker, LangChain, and REST APIs.
+
+Combat Solutions AI operates in the domain of enterprise Generative AI, industrial automation systems, and intelligent workflow development. The company follows a structured workflow including data processing, AI system development, backend integration, testing, debugging, and deployment. It works on technologies such as LangChain, RAG systems, REST APIs, Docker, and industrial XAML-to-PDIX conversion pipelines to develop secure, scalable, and enterprise-ready AI solutions.
+
+\begin{table}[H]
+\centering
+\caption{Technology Stack used across both organizations}
+\begin{tabular}{>{\bfseries}p{4cm} p{8cm}}
+\toprule
+\textbf{Area} & \textbf{Technology / Tool} \\
+\midrule
+Programming Language & Python \\
+Frameworks \& Libraries & Flask, FastAPI, LangChain, LangGraph \\
+AI Technologies & Generative AI, RAG, LLMs, Prompt Engineering \\
+APIs & REST APIs, OpenAI API, Groq API \\
+Databases & PostgreSQL, SQLite \\
+Industrial Tools & XAML Processing, PI Vision, PDIX Workflows \\
+Cloud \& DevOps & Docker, Azure Services \\
+Development Tools & VS Code, Postman, GitHub, Google Colab \\
+\bottomrule
+\end{tabular}
+\label{tab:techstack}
+\end{table}
+
+\section{About the Internship}
+
+The internship was initially carried out at \textbf{ParentHook and Transition Software, Pune} in online mode for a duration of one month, followed by an ongoing six-month offline internship at \textbf{Combat Solutions AI, Nashik}. The role assigned was \textit{GenAI Intern}, working in the domain of Artificial Intelligence, backend engineering, and industrial automation systems under the guidance of industry mentor \textbf{Miss. Vidya Dhage}.
+
+Key phases of the internship included:
+\begin{enumerate}[leftmargin=1.5cm]
+    \item \textbf{Online Phase -- ParentHook \& Transition Software:} AI application development, Flask APIs, LangChain/LangGraph workflows, Docker, and MLOps concepts.
+    \item \textbf{Offline Phase -- Combat Solutions AI:} CENTUM DCS XAML-to-PDIX conversion pipeline, multistate workflow development, Clarify AI Siemens (RAG/LangChain), and the Atlan backend project.
+    \item \textbf{Professional Development:} Continuous testing, debugging, code reviews, and workflow optimization across all projects.
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────────
+%  CHAPTER 3 – PROBLEM STUDIED / WORK UNDERTAKEN
+% ──────────────────────────────────────────────────────────────
+\chapter{Problem Studied / Work Undertaken}
+
+\section{Introduction}
+
+In the previous chapter, the overview of the organizations and internship details was discussed. During the internship, it was observed that modern software systems often face challenges related to automation, efficient data processing, backend integration, and system reliability. Managing large amounts of data, reducing manual effort, and maintaining workflow accuracy are important challenges in real-world applications.
+
+The major problem studied during the internship was improving automation processes and developing intelligent systems that can increase efficiency, accuracy, and scalability. Traditional methods are often time-consuming and less efficient, creating the need for smart and automated solutions. The internship focused on understanding how Artificial Intelligence, backend technologies, and automation frameworks can be used to solve such real-world problems effectively.
+
+\section{System Studied}
+
+The system studied during the internship consists of AI-based applications, backend systems, and automation workflows designed to improve efficiency, automate processes, and support intelligent decision-making. The overall system consists of multiple components working together to process data, manage workflows, and generate structured outputs:
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Input Layer:} Collects data from various sources such as files, APIs, user inputs, and backend systems for further processing.
+    \item \textbf{Processing Layer:} Processes, validates, and transforms the collected data into structured formats suitable for system operations and analysis.
+    \item \textbf{AI and Automation Layer:} Uses AI frameworks, automation logic, and intelligent workflows to perform tasks such as data handling, chatbot interaction, backend processing, and workflow automation.
+    \item \textbf{Database and Storage Layer:} Stores structured and unstructured data using databases and file management systems for efficient retrieval and processing.
+    \item \textbf{Backend and API Layer:} Includes backend services and REST APIs developed using frameworks such as Flask and FastAPI for communication between different system components.
+    \item \textbf{Output Layer:} Generates final outputs such as reports, structured files, automated responses, visualizations, and processed system data.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{System Overview}
+\begin{tabular}{>{\bfseries}p{4cm} p{9cm}}
+\toprule
+\textbf{Component} & \textbf{Description} \\
+\midrule
+System Type & AI-based automation and backend application systems \\
+Architecture & Modular and scalable workflow-based architecture \\
+User Interface & Responsive and structured interface for smooth system interaction \\
+Core Focus & Automation, intelligent processing, and workflow optimization \\
+Processes & Backend processing, API communication, data handling, and automation workflows \\
+Practices Used & Development, testing, debugging, optimization, and iterative improvements \\
+Optimization & Performance and efficiency improvements \\
+\bottomrule
+\end{tabular}
+\label{tab:sysoverview}
+\end{table}
+
+\subsection{Tools and Technologies Studied}
+
+During the internship, the following tools and technologies were studied and implemented:
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Programming Languages:} Python
+    \item \textbf{Frameworks \& Libraries:} Flask, LangChain, Debugging and Testing Techniques
+    \item \textbf{APIs \& Platforms:} REST APIs, OpenAI API, Groq API
+    \item \textbf{Databases \& Storage:} SQLite, PostgreSQL
+    \item \textbf{Development Tools:} Visual Studio Code, Postman, GitHub, Google Colab
+    \item \textbf{Industrial \& Visualization Tools:} PI Vision, XAML Processing System
+\end{itemize}
+
+\subsection{System Features}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Automated data processing and workflow management
+    \item Debugging, validation, and optimization support
+    \item Intelligent automation using AI-based frameworks
+    \item Integration of backend systems and REST APIs
+    \item Modular and scalable system architecture
+\end{itemize}
+
+\subsection{Advantages}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Reduces manual effort and processing time
+    \item Improves system efficiency and workflow accuracy
+    \item Handles large-scale data and backend operations efficiently
+    \item Enhances automation and system reliability
+    \item Supports scalable and modular application development
+\end{itemize}
+
+\subsection{Limitations}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Dependency on proper data formatting and system inputs
+    \item Requires continuous testing, debugging, and optimization
+    \item AI-based systems may sometimes generate inconsistent outputs
+    \item Managing automation accuracy in complex systems can be challenging
+\end{itemize}
+
+\section{Phase 1: ParentHook and Transition Software (Online)}
+
+\subsection{AI Application Development}
+
+During the initial one-month online phase at ParentHook and Transition Software, work was carried out on the following AI-based application projects:
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Dynamic Quiz Generator:} An AI-powered system capable of automatically generating quiz questions from provided content using LangChain and LLMs.
+    \item \textbf{AI-based Website Generator:} A system that generates website structures and content using Generative AI approaches.
+    \item \textbf{Multi-tenant Backend Systems:} Development of backend architectures supporting multiple tenants with isolated data and workflows.
+    \item \textbf{Conversational AI Applications:} Implementation of conversational AI workflows using LangChain and LangGraph frameworks.
+\end{itemize}
+
+Key technologies explored included Flask, FastAPI, Docker, LangChain, LangGraph, and MLOps concepts including model deployment and monitoring workflows.
+
+\section{Phase 2: Combat Solutions AI (Offline)}
+
+\subsection{CENTUM DCS XAML to PI Vision PDIX Conversion Pipeline}
+
+The primary and most technically intensive project at Combat Solutions AI was the development of an automated conversion pipeline to transform \textbf{CENTUM DCS XAML files} into \textbf{PI Vision PDIX format}. This pipeline enables industrial visualization data created in Yokogawa CENTUM DCS systems to be imported into the OSIsoft PI Vision industrial monitoring platform.
+
+The conversion pipeline involved the following stages:
+\begin{enumerate}[leftmargin=1.5cm]
+    \item \textbf{XAML Parsing:} Analyzing XAML structure including GroupComponents, Rectangles, Text, PushButton, and DataLink elements.
+    \item \textbf{Coordinate Mapping:} Mapping positional and dimensional attributes from XAML to corresponding PI Vision JSON layout.
+    \item \textbf{JSON Generation:} Producing structured JSON output with proper symbol extraction, layering logic, and nested group handling.
+    \item \textbf{PDIX Generation:} Merging JSON outputs and generating final PDIX files importable into PI Vision.
+    \item \textbf{Multistate Handling:} Implementing dynamic XAML reading and state-based visualization rendering for multistate buttons and text elements.
+\end{enumerate}
+
+Significant debugging was performed to resolve XML parsing issues, overlapping element rendering, spacing and alignment problems, PushButton positioning, and PDIX schema compatibility issues.
+
+\subsection{Clarify AI Siemens Project}
+
+This project involved developing intelligent document processing and AI-driven workflow systems. Key activities included:
+\begin{itemize}[leftmargin=1.5cm]
+    \item Study and implementation of \textbf{Retrieval-Augmented Generation (RAG)} concepts for intelligent document querying.
+    \item Exploration of \textbf{LangChain} integrations and intelligent chatbot workflow architectures.
+    \item Study of \textbf{Azure services} for cloud-based AI workflows and intelligent document processing.
+    \item Research into AI-driven automation workflows and backend integration approaches.
+\end{itemize}
+
+\subsection{Atlan Project -- Backend API Development}
+
+The Atlan project involved backend API development and workflow integration:
+\begin{itemize}[leftmargin=1.5cm]
+    \item Study and implementation of REST API structures and endpoint workflows.
+    \item CRUD operations development and structured API development approaches.
+    \item API validation, response handling, and backend integration.
+    \item Development of \textbf{quotation generation} and \textbf{email automation} modules.
+    \item API testing using Postman and debugging of backend workflow issues.
+\end{itemize}
+
+\section{Conclusion of Problem Studied}
+
+The study of the system provided a clear understanding of how Artificial Intelligence, backend technologies, and automation frameworks can be used to solve real-world problems efficiently. It highlighted the importance of automation, structured workflow management, intelligent processing, and system optimization in modern software applications.
+
+% ──────────────────────────────────────────────────────────────
+%  CHAPTER 4 – RESULTS AND DISCUSSIONS
+% ──────────────────────────────────────────────────────────────
+\chapter{Results and Discussions}
+
+\section{Introduction}
+
+This chapter presents the outcomes derived from the activities, projects, and technical exposure described in the preceding chapters. It summarizes key results from the ParentHook online phase, the Combat Solutions AI industrial automation work, and overall professional development activities. The focus is on learning outcomes, technical achievements, and the practical value of the work carried out.
+
+\section{Results and Discussions}
+
+\subsection{Results from the ParentHook and Transition Software Phase}
+
+The online internship phase resulted in foundational understanding of AI application development workflows, LangChain-based conversational systems, Flask/FastAPI backend development, and Docker-based deployment. Building projects such as the Dynamic Quiz Generator and AI-based Website Generator helped translate theoretical Generative AI concepts into working software applications.
+
+\subsection{Results from the CENTUM DCS XAML-to-PDIX Pipeline}
+
+The industrial visualization conversion pipeline was the most technically complex project of the internship. Key outcomes include:
+\begin{itemize}[leftmargin=1.5cm]
+    \item A functional end-to-end XAML-to-JSON-to-PDIX conversion workflow handling GroupComponents, PushButtons, DataLink elements, and nested groups.
+    \item Successful resolution of XML parsing issues, coordinate mapping errors, and rendering inconsistencies.
+    \item Implementation of multistate button and text rendering with dynamic XAML reading and state-based logic.
+    \item Integration of JSON merger and PDIX generation modules into a complete, automated pipeline.
+    \item Improved workflow modularity, automation reliability, and structured output generation through continuous testing and optimization.
+\end{itemize}
+
+\subsection{Results from the Clarify AI Siemens and Atlan Projects}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Practical understanding of RAG systems, LangChain, and intelligent document processing for enterprise AI applications.
+    \item Development and testing of REST APIs for the Atlan project, including quotation generation and email automation modules.
+    \item Enhanced skills in API validation, backend integration, CRUD operations, and workflow reliability through Postman-based testing and debugging.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Comparative Analysis of General Approaches}
+\begin{tabular}{>{\bfseries}p{4cm} p{4cm} p{4cm}}
+\toprule
+\textbf{Aspect} & \textbf{Traditional Approach} & \textbf{AI-based Approach} \\
+\midrule
+Data Processing & Manual and time-consuming & Automated and efficient \\
+Workflow Management & Static and rigid & Dynamic and adaptable \\
+Error Handling & Manual debugging & Intelligent detection \\
+Scalability & Limited & High and modular \\
+Output Generation & Fixed format & Structured and flexible \\
+Optimization & Periodic review & Continuous improvement \\
+\bottomrule
+\end{tabular}
+\label{tab:comparative}
+\end{table}
+
+\subsection{Professional Development Outcomes}
+
+\begin{itemize}[leftmargin=1.5cm]
+    \item Significant improvement in debugging, testing, and system optimization skills through continuous hands-on project work.
+    \item Exposure to enterprise-grade industrial automation systems and Generative AI deployment practices.
+    \item Enhanced analytical thinking, problem-solving, and backend engineering knowledge through real-world project challenges.
+    \item Improved understanding of structured API development, workflow automation, and scalable system architecture.
+\end{itemize}
+
+\section{Recommendations}
+
+Based on the internship experience, the following recommendations are offered:
+\begin{enumerate}[leftmargin=1.5cm]
+    \item Comprehensive documentation standards should be maintained for all XAML-to-PDIX conversion scripts to improve long-term maintainability and onboarding efficiency.
+    \item Automated testing frameworks should be progressively integrated into the XAML conversion pipeline to catch rendering regressions early.
+    \item A structured knowledge base for RAG and LangChain workflows should be developed to accelerate future AI chatbot and document processing projects.
+    \item Consistent use of version control (Git) and pull-request-based code reviews across all team projects would improve code quality and collaboration.
+    \item More cross-project technical knowledge-sharing sessions would benefit interns and junior developers in understanding the broader enterprise AI product portfolio.
+    \item Standardized error logging and monitoring should be integrated across automation pipelines to improve debugging efficiency and system observability.
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────────
+%  CHAPTER 5 – CONCLUSION AND FUTURE SCOPE
+% ──────────────────────────────────────────────────────────────
+\chapter{Conclusion and Future Scope}
+
+\section{Conclusion}
+
+The internship at Combat Solutions AI, Nashik and ParentHook and Transition Software, Pune provided comprehensive, hands-on exposure to the complete AI and backend development lifecycle. Starting from foundational Generative AI concepts and Flask-based backend development at ParentHook, the internship progressed through complex industrial automation pipeline development, RAG-based intelligent systems, and backend API engineering at Combat Solutions AI.
+
+The CENTUM DCS XAML-to-PI Vision PDIX conversion pipeline was the most technically demanding project, requiring deep understanding of industrial visualization systems, XAML parsing, coordinate mapping, JSON generation, and PDIX compatibility. The iterative process of debugging, testing, and optimizing the pipeline across multiple real XAML files developed strong problem-solving and engineering skills.
+
+The Clarify AI Siemens and Atlan projects provided exposure to enterprise-level Generative AI workflows, RAG systems, LangChain integration, REST API development, and backend automation -- skills that are directly applicable to modern AI engineering roles.
+
+Beyond technical skills, the internship developed professional competencies including teamwork, technical communication, adaptability, and a results-oriented mindset. Exposure to enterprise workflows, production AI systems, and industrial automation tools enriched understanding of how AI organizations operate and deliver value at scale.
+
+Overall, this internship has significantly enhanced readiness for a career in AI engineering, backend development, and intelligent automation, and has laid a strong foundation for future growth in cloud-native AI systems, LLM-based applications, and enterprise automation.
+
+\section{Future Scope}
+
+The technical and professional foundation built during this internship opens several avenues for further development:
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Advanced RAG Systems:} Extending RAG implementations with multi-modal data sources, hybrid retrieval strategies, and production-grade vector database integrations (e.g., Pinecone, Weaviate).
+    \item \textbf{XAML Pipeline Enhancement:} Adding support for additional XAML element types, improving rendering fidelity, and developing a visual validation tool to compare input and output visualizations automatically.
+    \item \textbf{LLM Fine-Tuning:} Exploring domain-specific fine-tuning of LLMs for industrial automation documentation and intelligent query systems.
+    \item \textbf{MLOps Integration:} Building full MLOps pipelines with automated model monitoring, A/B testing, and continuous retraining workflows using tools like MLflow or Azure ML.
+    \item \textbf{Agentic AI Systems:} Developing multi-agent frameworks using LangGraph for complex, multi-step automation tasks in enterprise environments.
+    \item \textbf{API Security and Scalability:} Implementing OAuth 2.0, JWT-based authentication, rate limiting, and API gateway patterns for securing and scaling enterprise backend APIs.
+    \item \textbf{Cloud-Native Deployment:} Containerizing AI applications with Docker and Kubernetes for cloud-native deployment on Azure or AWS with CI/CD pipelines.
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════════
+%  REFERENCES
+% ══════════════════════════════════════════════════════════════
+\chapter*{References}
+\addcontentsline{toc}{chapter}{References}
+
+\begin{enumerate}[leftmargin=1.5cm, label={[\arabic*]}]
+    \item LangChain. (2024). \textit{LangChain Documentation}. \url{https://docs.langchain.com/}
+    \item OpenAI. (2024). \textit{OpenAI API Reference}. \url{https://platform.openai.com/docs/}
+    \item Microsoft. (2024). \textit{Azure AI Services Documentation}. \url{https://docs.microsoft.com/en-us/azure/cognitive-services/}
+    \item OSIsoft. (2024). \textit{PI Vision Documentation}. \url{https://docs.osisoft.com/bundle/pi-vision/}
+    \item Flask. (2024). \textit{Flask Web Framework Documentation}. \url{https://flask.palletsprojects.com/}
+    \item FastAPI. (2024). \textit{FastAPI Documentation}. \url{https://fastapi.tiangolo.com/}
+    \item Docker Inc. (2024). \textit{Docker Documentation}. \url{https://docs.docker.com/}
+    \item Geron, A. (2022). \textit{Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow}. O'Reilly Media.
+    \item Lewis, P., et al. (2020). \textit{Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}. NeurIPS 2020.
+    
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════
+%  APPENDIX
+% ══════════════════════════════════════════════════════════════
+\newpage
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+% % \section*{A. Weekly and Monthly Reports}
+
+% % \subsection*{Month: January}
+
+% % \begin{longtable}{>{\bfseries}p{3cm} p{10cm}}
+% % \toprule
+% % \textbf{Week} & \textbf{Activities / Topics Covered} \\
+% % \midrule
+% % \endhead
+% % Week 1 & Onboarding at ParentHook and Transition Software; introduction to AI workflows, Flask APIs, and LangChain basics. \\
+% % Week 2 & Explored LangChain and LangGraph; worked on Dynamic Quiz Generator project. \\
+% % Week 3 & Worked on AI-based Website Generator and Multi-tenant backend systems. \\
+% % Week 4 & Studied MLOps concepts, Docker deployment, and Conversational AI workflows. \\
+% % \midrule
+% % \multicolumn{2}{l}{\textbf{Monthly Summary}} \\
+% % \midrule
+% % \multicolumn{2}{p{13cm}}{Research activities were conducted on orchestration systems, automation workflows, and intelligent processing approaches. Various concepts related to workflow optimization, backend automation, and structured execution methods were studied. Agentic AI concepts, intelligent agents, and automation workflows were also explored. Work on integrating external tools and understanding API-based workflows, Docker, vector databases, and backend integrations was performed.} \\
+% % \bottomrule
+% % \end{longtable}
+
+% % \subsection*{Month: February}
+
+% % \begin{longtable}{>{\bfseries}p{3cm} p{10cm}}
+% % \toprule
+% % \textbf{Week} & \textbf{Activities / Topics Covered} \\
+% % \midrule
+% % \endhead
+% % Week 1 & Understood the CENTUM DCS XAML to PI Vision conversion workflow; studied XAML structures, GroupComponents, Rectangles, Text, and PushButton elements; learned PI Vision JSON structure and industrial visualization concepts; initial testing and validation of XAML-to-JSON conversion workflows. \\
+% % Week 2 & Worked on XAML-to-JSON conversion and symbol extraction; debugged XML parsing and structural issues; improved PushButton positioning and layout calculations; studied nested group handling and visualization alignment. \\
+% % Week 3 & Worked on table structure transformation and UI component rendering; integrated pushbutton extraction and layering logic; resolved overlapping, alignment, and spacing-related issues; tested multiple XAML files for compatibility; learned Flask API structure and backend authentication concepts. \\
+% % Week 4 & Integrated JSON merger and PDIX generation into the execution pipeline; worked on snippet-wise processing and structured output generation; debugged PDIX import issues and schema-related problems; improved workflow modularity and automation reliability; conducted end-to-end pipeline testing. \\
+% % \midrule
+% % \multicolumn{2}{l}{\textbf{Monthly Summary}} \\
+% % \midrule
+% % \multicolumn{2}{p{13cm}}{The month began with understanding the CENTUM DCS XAML to PI Vision conversion workflow and studying industrial visualization systems. Work was carried out on XAML-to-JSON conversion involving symbol extraction, coordinate mapping, and layout calculations. Significant work was performed on handling table structures, pushbutton extraction, nested groups, and layering logic. The JSON merger and PDIX generation modules were integrated into the overall execution flow to create a complete end-to-end conversion pipeline. Continuous testing and backend learning activities were also carried out.} \\
+% % \bottomrule
+% % \end{longtable}
+
+% % \subsection*{Month: March}
+
+% % \begin{longtable}{>{\bfseries}p{3cm} p{10cm}}
+% % \toprule
+% % \textbf{Week} & \textbf{Activities / Topics Covered} \\
+% % \midrule
+% % \endhead
+% % Week 1 & Worked on refining multistate button and text rendering workflows; studied dynamic XAML reading and state-based visualization handling; debugged parameter mapping and JSON generation issues; tested multistate workflows on different XAML files. \\
+% % Week 2 & Continued testing and optimization of multistate scripts; resolved rendering inconsistencies and alignment issues; improved workflow handling for different XAML structures; enhanced workflow reliability and automation accuracy. \\
+% % Week 3 & Started working on the Clarify AI Siemens project; studied RAG, LangChain, and intelligent document systems; explored AI workflow architectures and chatbot implementation approaches; researched LangChain integrations and automation workflows. \\
+% % Week 4 & Worked on AI-based chatbot workflow understanding and implementation; studied Azure-related concepts and intelligent document processing systems; continued testing and debugging of DCS workflows; performed workflow optimization and output validation. \\
+% % \midrule
+% % \multicolumn{2}{l}{\textbf{Monthly Summary}} \\
+% % \midrule
+% % \multicolumn{2}{p{13cm}}{The month primarily focused on refining multistate button and text rendering workflows within the DCS XAML-to-JSON conversion pipeline. Several debugging and testing activities resolved rendering inconsistencies, parameter mismatches, and alignment-related issues. During the later phase, work was initiated on the Clarify AI Siemens project involving intelligent document systems, RAG, LangChain, and chatbot workflows.} \\
+% % \bottomrule
+% % \end{longtable}
+
+% % \newpage\subsection*{Month: April}
+
+% % \begin{longtable}{>{\bfseries}p{3cm} p{10cm}}
+% % \toprule
+% % \textbf{Week} & \textbf{Activities / Topics Covered} \\
+% % \midrule
+% % \endhead
+% % Week 1 & Script testing and validation for pushbutton and multistate workflows; refined multistate scripts; performed debugging and optimization of workflow execution; improved structured output handling; conducted automation accuracy testing. \\
+% % Week 2 & Worked on XAML-to-JSON conversion and visualization improvements; resolved issues related to arrow rendering, polyline handling, and bounding box calculations; improved multistate text handling and state mapping logic; tested on multiple XAML files. \\
+% % Week 3 & Started working on the Atlan project and backend API development; studied REST API structures, endpoint workflows, and Postman testing; worked on API validation, response handling, and backend integration; explored CRUD operations and structured API development. \\
+% % Week 4 & Worked on quotation generation and email automation modules in Atlan; performed DCS testing and workflow validation activities; improved debugging, automation reliability, and backend workflow handling; continued optimization of automation pipelines and APIs. \\
+% % \midrule
+% % \multicolumn{2}{l}{\textbf{Monthly Summary}} \\
+% % \midrule
+% % \multicolumn{2}{p{13cm}}{The month began with testing and validating pushbutton and multistate scripts within the DCS workflow system. Significant work was performed on XAML-to-JSON conversion and visualization improvements, resolving arrow rendering, polyline handling, and bounding box issues. Work was also initiated on the Atlan project involving backend API development. Advanced AI concepts related to RAG, LangChain, and Azure services were studied under the Clarify AI Siemens project. Continuous testing, debugging, and optimization activities improved workflow stability and backend integration.} \\
+% \bottomrule
+% \end{longtable}
+\section*{A. Weekly and Monthly Reports}
+
+% ── JANUARY ──────────────────────────────────────────────────
+\subsection*{Month: January}
+
+\subsubsection*{Week 1 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Understood project workflows, backend structures, and AI system architecture
+    \item Worked on API integration and backend development tasks
+    \item Studied LangChain, LangGraph, and AI workflow concepts
+    \item Performed debugging and testing activities for workflow optimization
+    \item Explored automation approaches and intelligent system development
+\end{itemize}
+
+\subsubsection*{Week 2 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on AI-based workflow implementation and backend integration
+    \item Performed testing and debugging of APIs and automation modules
+    \item Studied Docker, deployment workflows, and database integration
+    \item Improved workflow reliability and system performance
+    \item Conducted research on AI frameworks and intelligent automation systems
+\end{itemize}
+
+\subsubsection*{Week 3 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on chatbot workflows and conversational AI systems
+    \item Implemented backend APIs and integrated automation modules
+    \item Performed optimization and validation of system outputs
+    \item Worked on debugging and resolving workflow inconsistencies
+    \item Explored RAG, prompt engineering, and vector database concepts
+\end{itemize}
+
+\subsubsection*{Week 4 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on workflow optimization and intelligent processing systems
+    \item Integrated backend services and improved API communication
+    \item Performed testing, debugging, and system validation tasks
+    \item Improved automation workflows and structured output generation
+    \item Conducted research on scalability and AI system performance
+\end{itemize}
+
+\subsubsection*{Monthly Summary -- January}
+\textbf{AI Workflow and Backend Learning:}
+The month began with understanding AI workflows, backend development concepts, and intelligent automation systems. Initial work involved studying project structures, API communication, workflow execution methods, and backend integration processes. Concepts related to Generative AI, LangChain, LangGraph, and conversational AI systems were explored to understand intelligent workflow design and automation approaches.
+
+\textbf{Dynamic Quiz Generator and AI-Based Applications:}
+Work was carried out on AI-based applications such as the Dynamic Quiz Generator and AI-powered Website Generator. Backend APIs were designed and implemented using Flask, and frontend-backend communication workflows were studied. Additional functionalities such as pagination, search filters, API versioning, and multi-tenant architecture were explored to improve scalability and workflow management.
+
+\textbf{Automation and Workflow Research:}
+Research activities were conducted on orchestration systems, automation workflows, and intelligent processing approaches. Various concepts related to workflow optimization, backend automation, and structured execution methods were studied to understand how intelligent systems manage and process tasks efficiently.
+
+\textbf{Agentic AI and Analytical Understanding:}
+Detailed study was performed on Agentic AI concepts, intelligent agents, and automation workflows. Work was carried out on signals, relevance analysis, predictive concepts, and confidence-based approaches to understand intelligent decision-making systems and analytical processing methods. Research papers and workflow methodologies related to AI-driven systems were also explored.
+
+\textbf{Tool Integration and Backend Activities:}
+Work was also performed on integrating external tools and understanding API-based workflows. Concepts related to Docker, vector databases, backend integrations, and frontend-backend connectivity were studied. Additionally, debugging and resolving issues related to email workflows and system integrations helped improve understanding of backend systems and workflow reliability.
+
+% ── FEBRUARY ─────────────────────────────────────────────────
+\newpage
+\subsection*{Month: February}
+
+\subsubsection*{Week 1 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Understood the CENTUM DCS XAML to PI Vision conversion workflow
+    \item Studied XAML structures, GroupComponents, Rectangles, Text, and PushButton elements
+    \item Learned PI Vision JSON structure and industrial visualization concepts
+    \item Worked on understanding coordinate mapping, positioning, and layout handling
+    \item Performed initial testing and validation of XAML-to-JSON conversion workflows
+\end{itemize}
+
+\subsubsection*{Week 2 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on XAML-to-JSON conversion and symbol extraction workflows
+    \item Debugged XML parsing and structural issues in XAML files
+    \item Improved PushButton positioning and layout calculations
+    \item Studied nested group handling and visualization alignment concepts
+    \item Performed testing and debugging of generated JSON outputs
+\end{itemize}
+
+\subsubsection*{Week 3 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on table structure transformation and UI component rendering
+    \item Integrated pushbutton extraction and layering logic into the workflow
+    \item Resolved overlapping, alignment, and spacing-related issues
+    \item Tested multiple XAML files for compatibility and output validation
+    \item Learned Flask API structure and backend authentication concepts
+\end{itemize}
+
+\subsubsection*{Week 4 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Integrated JSON merger and PDIX generation into the execution pipeline
+    \item Worked on snippet-wise processing and structured output generation
+    \item Debugged PDIX import issues and schema-related problems
+    \item Improved workflow modularity and automation reliability
+    \item Conducted testing, debugging, and optimization of the end-to-end conversion pipeline
+\end{itemize}
+
+\subsubsection*{Monthly Summary -- February}
+\textbf{XAML to JSON Workflow Understanding:}
+The month began with understanding the CENTUM DCS XAML to PI Vision conversion workflow and studying industrial visualization systems. Detailed analysis was performed on XAML structures including GroupComponents, Text, Rectangles, PushButtons, and DataLink elements to understand graphical and positional mapping into JSON format.
+
+\textbf{XAML-to-JSON Conversion and Debugging:}
+Work was carried out on the XAML-to-JSON conversion pipeline involving symbol extraction, coordinate mapping, layout calculations, and visualization alignment. Multiple XML parsing and structural issues were debugged and resolved to improve workflow stability and output accuracy.
+
+\textbf{Table Structures and PushButton Handling:}
+Significant work was performed on handling table structures, pushbutton extraction, nested groups, and layering logic within the conversion pipeline. Issues related to overlapping elements, spacing, alignment, and visualization rendering were identified and resolved through testing and optimization.
+
+\textbf{JSON Merging and PDIX Generation:}
+The JSON merger and PDIX generation modules were integrated into the overall execution flow to create a complete end-to-end conversion pipeline. Work was performed on snippet-wise processing, structured output generation, and debugging PI Vision PDIX import issues to improve workflow compatibility and automation reliability.
+
+\textbf{Testing, Validation, and Backend Learning:}
+Continuous testing and validation activities were carried out on multiple XAML files to ensure compatibility and correct output generation. Additionally, backend concepts such as Flask APIs, authentication workflows, and structured debugging approaches were explored during the internship period.
+
+% ── MARCH ────────────────────────────────────────────────────
+\newpage
+\subsection*{Month: March}
+
+\subsubsection*{Week 1 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on refining multistate button and text rendering workflows
+    \item Studied dynamic XAML reading and state-based visualization handling
+    \item Debugged issues related to parameter mapping and JSON generation
+    \item Tested multistate workflows on different XAML files
+    \item Performed modifications and validation for workflow accuracy
+\end{itemize}
+
+\subsubsection*{Week 2 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Continued testing and optimization of multistate scripts
+    \item Worked on resolving rendering inconsistencies and alignment issues
+    \item Improved workflow handling for different XAML structures
+    \item Performed debugging and validation of generated outputs
+    \item Enhanced workflow reliability and automation accuracy
+\end{itemize}
+
+\subsubsection*{Week 3 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Started working on the Clarify AI Siemens project
+    \item Studied concepts related to RAG, LangChain, and intelligent document systems
+    \item Explored AI workflow architectures and chatbot implementation approaches
+    \item Researched LangChain integrations and automation workflows
+    \item Understood intelligent query and document retrieval concepts
+\end{itemize}
+
+\subsubsection*{Week 4 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on AI-based chatbot workflow understanding and implementation
+    \item Studied Azure-related concepts and intelligent document processing systems
+    \item Continued testing and debugging of DCS workflows and scripts
+    \item Performed workflow optimization and output validation tasks
+    \item Explored backend integration and AI-driven automation approaches
+\end{itemize}
+
+\subsubsection*{Monthly Summary -- March}
+\textbf{Multistate Workflow Development:}
+The month primarily focused on refining multistate button and text rendering workflows within the DCS XAML-to-JSON conversion pipeline. Work was carried out on dynamic XAML reading, state-based rendering logic, and proper mapping of parameters into structured JSON outputs.
+
+\textbf{Debugging and Workflow Optimization:}
+Several debugging and testing activities were performed to resolve rendering inconsistencies, parameter mismatches, and alignment-related issues. The workflows were continuously modified and validated on multiple XAML files to improve output accuracy and workflow reliability.
+
+\textbf{XAML Testing and Validation:}
+Extensive testing was performed on different XAML structures to ensure proper handling of multistate components and visualization accuracy. Various modifications and refinements were implemented to improve compatibility and structured output generation across multiple files.
+
+\textbf{Clarify AI Siemens Project:}
+During the later phase of the month, work was initiated on the Clarify AI Siemens project involving intelligent document systems and AI-driven workflows. Concepts related to Retrieval-Augmented Generation (RAG), LangChain, intelligent query systems, and chatbot workflows were studied and explored for practical understanding.
+
+\textbf{AI Workflow and Backend Learning:}
+Additional learning activities involved studying AI workflow architectures, backend integration concepts, intelligent automation approaches, and document processing systems. Continuous research, debugging, and optimization activities helped improve understanding of AI-based workflow development and system automation.
+
+% ── APRIL ────────────────────────────────────────────────────
+\newpage
+\subsection*{Month: April}
+
+\subsubsection*{Week 1 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on script testing and validation for pushbutton and multistate workflows
+    \item Refined multistate scripts and validated outputs on different XAML files
+    \item Performed debugging and optimization of workflow execution
+    \item Improved workflow reliability and structured output handling
+    \item Conducted testing activities for automation accuracy
+\end{itemize}
+
+\subsubsection*{Week 2 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on XAML-to-JSON conversion and visualization improvements
+    \item Resolved issues related to arrow rendering, polyline handling, and bounding box calculations
+    \item Improved multistate text handling and state mapping logic
+    \item Performed debugging and optimization for layout accuracy
+    \item Tested workflows on multiple XAML files for validation
+\end{itemize}
+
+\subsubsection*{Week 3 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Started working on the Atlan project and backend API development
+    \item Studied REST API structures, endpoint workflows, and Postman testing
+    \item Worked on API validation, response handling, and backend integration
+    \item Explored CRUD operations and structured API development approaches
+    \item Conducted debugging and testing of API workflows
+\end{itemize}
+
+\subsubsection*{Week 4 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on quotation generation and email automation modules in Atlan
+    \item Performed DCS testing and workflow validation activities
+    \item Improved debugging, automation reliability, and backend workflow handling
+    \item Continued optimization and testing of automation pipelines and APIs
+\end{itemize}
+
+\subsubsection*{Monthly Summary -- April}
+\textbf{Script Testing and Workflow Validation:}
+The month began with testing and validating pushbutton and multistate scripts within the DCS workflow system. Work was carried out on refining script logic, improving workflow execution, and validating outputs on multiple XAML files to ensure system reliability and automation accuracy.
+
+\textbf{XAML-to-JSON Conversion and Visualization Improvements:}
+Significant work was performed on XAML-to-JSON conversion workflows and industrial visualization improvements. Issues related to arrow rendering, polyline handling, bounding box calculations, and multistate text mapping were identified and resolved through debugging and optimization. Testing and validation activities helped improve layout accuracy and structured output generation.
+
+\textbf{Backend API Development -- Atlan Project:}
+Work was initiated on the Atlan project involving backend API development and workflow integration. REST API structures, endpoint handling, CRUD operations, validation methods, and response handling approaches were studied and implemented. APIs were tested using Postman, and debugging activities were performed to improve backend workflow reliability.
+
+\textbf{Clarify AI Siemens Project and AI Workflow Learning:}
+Advanced AI concepts related to Retrieval-Augmented Generation (RAG), LangChain, Azure services, and intelligent chatbot systems were studied under the Clarify AI Siemens project. Research and practical understanding of AI-driven document systems and automation workflows were explored during this phase.
+
+\textbf{Automation, Testing, and Optimization:}
+Continuous testing, debugging, and optimization activities were carried out throughout the month to improve workflow stability, backend integration, automation accuracy, and system performance. Exposure to industrial workflows and AI-based system development significantly improved technical understanding and problem-solving abilities.
+% ── MAY ──────────────────────────────────────────────────────
+\newpage
+\subsection*{Month: May}
+
+\subsubsection*{Week 1 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Understood the Atlan project workflow and backend architecture
+    \item Worked on customer CRUD operations and backend API development
+    \item Studied API structure, validation, and response handling approaches
+    \item Performed testing and debugging of backend workflows
+    \item Continued DCS file testing and issue validation activities
+\end{itemize}
+
+\subsubsection*{Week 2 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Developed Super Admin APIs for customer and staff management
+    \item Worked on listing, viewing, deleting, and single-customer APIs
+    \item Added search, pagination, logging, and structured response handling
+    \item Tested APIs using Postman and resolved database join-related issues
+    \item Worked on DCS touch target and layering-related workflow issues
+\end{itemize}
+
+\subsubsection*{Week 3 Summary}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Worked on quotation generation and email automation workflows
+    \item Implemented proposal generation and automated email sending features
+    \item Performed code refactoring and production-ready workflow improvements
+    \item Added exception handling, iterative functions, and workflow optimization
+    \item Conducted final DCS workflow testing and output validation
+\end{itemize}
+
+\subsubsection*{Week 4 Summary (Till Current Date)}
+\textbf{Activities Completed:}
+\begin{itemize}[leftmargin=1.5cm]
+    \item Understood the TOT project workflow and molecule extraction structure
+    \item Studied project architecture, libraries, and backend processing methods
+    \item Continued DCS code refinement and workflow optimization
+    \item Performed testing and debugging on multiple files for validation
+    \item Discussed final workflow improvements and implementation approaches
+\end{itemize}
+
+\subsubsection*{Monthly Summary -- May}
+\textbf{Backend API Development -- Atlan Project:}
+The month primarily focused on backend API development and workflow implementation for the Atlan project. Work was carried out on customer CRUD operations, Super Admin APIs, staff management modules, API validation, logging, structured response handling, and backend workflow integration. Features such as search, pagination, and customer management workflows were implemented and tested using Postman.
+
+\textbf{Quotation Generation and Email Automation:}
+Work was performed on quotation generation and proposal automation workflows. Automated email sending features and proposal generation modules were implemented to improve workflow efficiency and reduce manual processing tasks. Backend integration and structured workflow handling were also improved during this phase.
+
+\textbf{DCS Workflow Testing and Optimization:}
+Continuous testing and debugging activities were performed on DCS workflows and XAML-related processing systems. Issues related to touch targets, layering, workflow alignment, and automation reliability were analyzed and resolved through structured debugging and optimization approaches. Final workflow validation and testing were also carried out on multiple files.
+
+\textbf{Production-Ready Code Refinement:}
+Significant work was carried out on making the codebase more production-ready by implementing exception handling, optimizing iterative functions, improving workflow structure, and handling unknown cases efficiently. Code refactoring and optimization activities helped improve maintainability, workflow reliability, and system stability.
+
+\textbf{TOT Project Understanding and Workflow Learning:}
+Towards the later phase of the month, knowledge transfer activities related to the TOT project were performed. The project workflow, molecule extraction processes, libraries, and backend architecture were studied to understand system execution and processing methods. Additional testing, debugging, and validation activities were also conducted to improve understanding of enterprise-level backend systems and automation workflows.
+\newpage
+\section*{B. Learning Outcomes Summary}
+
+The internship enhanced understanding of:
+\begin{itemize}[leftmargin=1.5cm]
+    \item XAML-to-JSON and PDIX conversion workflows for industrial visualization systems
+    \item Industrial automation systems and DCS visualization pipelines
+    \item Backend API development using Flask and FastAPI
+    \item REST API integration, CRUD operations, and workflow automation
+    \item RAG, LangChain, and intelligent chatbot workflows
+    \item Debugging, testing, and optimization techniques
+    \item Workflow validation and structured output generation
+    \item Backend integration and automation system development
+\end{itemize}
+
+\noindent\textbf{Tools and Technologies Used:}
+Python, Flask, LangChain, REST APIs, Postman, PostgreSQL/SQLite, JSON and XAML Processing, PI Vision and PDIX Workflows, Azure Services, Git and GitHub, Backend Integration and Automation Tools.
+
+% ══════════════════════════════════════════════════════════════
+%  PHOTOGRAPH OF MENTOR VISIT
+% ══════════════════════════════════════════════════════════════
+\newpage
+\chapter*{Photograph of Internship Mentor Visit}
+\addcontentsline{toc}{chapter}{Photograph of Internship Mentor Visit}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth, keepaspectratio]{visit.jpeg}
+    \caption{Review Visit -- Combat Solutions AI, Nashik}
+    \label{fig:Review Visit --Combat Solutions AI, Nashik}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════
+\end{document}

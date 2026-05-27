@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example: Embedded Chatbot Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .note {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Example: Embedded Chatbot Widget</h1>
+    
+    <p>This is a simple HTML page demonstrating how to embed the chatbot widget.</p>
+    
+    <div class="note">
+        <strong>Note:</strong> Replace <code>YOUR_DOMAIN</code> and <code>YOUR_COLLECTION_ID</code> with your actual values.
+    </div>
+    
+    <h2>Method 1: Floating Widget (Recommended)</h2>
+    <p>Add this script tag before the closing <code>&lt;/body&gt;</code> tag:</p>
+    <div class="code-block">
+        <pre>&lt;script src="http://YOUR_DOMAIN/chatbot-widget.js" 
+        data-collection-id="YOUR_COLLECTION_ID" 
+        data-base-url="http://YOUR_DOMAIN"&gt;&lt;/script&gt;</pre>
+    </div>
+    
+    <h2>Method 2: Iframe Embed</h2>
+    <p>Add this iframe code anywhere in your HTML:</p>
+    <div class="code-block">
+        <pre>&lt;iframe src="http://YOUR_DOMAIN/#/embed-chatbot/YOUR_COLLECTION_ID" 
+        width="400" 
+        height="600" 
+        frameborder="0" 
+        style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);"&gt;&lt;/iframe&gt;</pre>
+    </div>
+    
+    <h2>Live Example</h2>
+    <p>Below is a live example (if you've configured it correctly):</p>
+    
+    <!-- Example: Replace with your actual collection ID and domain -->
+    <!-- 
+    <script src="http://YOUR_DOMAIN/chatbot-widget.js" 
+            data-collection-id="YOUR_COLLECTION_ID" 
+            data-base-url="http://YOUR_DOMAIN"></script>
+    -->
+    
+    <div class="note">
+        <strong>Instructions:</strong>
+        <ol>
+            <li>Copy the embed code from your Documents page</li>
+            <li>Paste it into your HTML file</li>
+            <li>Replace YOUR_DOMAIN with your actual domain (e.g., http://10.1.60.71:8080)</li>
+            <li>Replace YOUR_COLLECTION_ID with your actual collection ID (e.g., col_abc123...)</li>
+            <li>Save and open your HTML file in a browser</li>
+        </ol>
+    </div>
+</body>
+</html>
+

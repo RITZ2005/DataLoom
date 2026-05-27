@@ -1,0 +1,172 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "username": "admin",
+      "password": "$2b$12$KiuGbO61hvSVN4TpMgWgl.CLff4uDGm27rWRBoO/jG7hx0bFvYpxy",
+      "role": "admin",
+      "name": "Admin User",
+      "created_at": "2026-02-06T00:00:00Z",
+      "updated_at": "2026-02-25T08:55:44.936739Z",
+      "is_active": true
+    },
+    {
+      "id": "2",
+      "email": "user@example.com",
+      "username": "user",
+      "password": "$2b$12$b2gDJJQgYdx/t67ENrTwueVdZlSqYidvHebkYnQ1FwuYJN4EEIvUW",
+      "role": "user",
+      "name": "Regular User",
+      "created_at": "2026-02-06T00:00:00Z",
+      "updated_at": "2026-02-06T00:00:00Z",
+      "is_active": true
+    },
+    {
+      "id": "3",
+      "email": "nishantkhalkar1710@gmail.com",
+      "username": "Nishantk",
+      "password": "$2b$12$l35QEPapnsCQNTsDgtAD5u/H5FFJdCqpId.6PE68JGDmP4WQb/cZ6",
+      "role": "user",
+      "name": "Nishant Khalkar",
+      "created_at": "2026-02-06T07:10:29.825359Z",
+      "updated_at": "2026-02-06T07:10:29.825359Z",
+      "is_active": true
+    },
+    {
+      "id": "4",
+      "email": "ritesh123@gmail.com",
+      "username": "Ritesh",
+      "password": "$2b$12$1OTcesH7hbBcK8XJTtGUG.GEONcxvgbO6WI5v2vzWIvOiQBn3alFK",
+      "role": "user",
+      "name": "Ritesh",
+      "created_at": "2026-02-06T08:44:33.557527Z",
+      "updated_at": "2026-05-06T09:56:52.897755Z",
+      "is_active": true,
+      "langfuse_enabled": true
+    },
+    {
+      "id": "5",
+      "email": "Nishantk@mkcl.org",
+      "username": "nishantk",
+      "password": "$2b$12$hpvecABA9VeehM8t3treje8YWTxDHrREvZSNyYItHQ30Yy0JHIqHK",
+      "role": "user",
+      "name": "Nishant Khalkar",
+      "created_at": "2026-02-23T08:45:12.558512Z",
+      "updated_at": "2026-02-23T08:45:12.558512Z",
+      "is_active": true
+    },
+    {
+      "id": "6",
+      "email": "ishwari@gmail.com",
+      "username": "ishwaris",
+      "password": "$2b$12$AqXrKJPAvJgjTYKVKR2.uOq0Lf9kf0Pded6RWj8AzKHUYM.K0AS.W",
+      "role": "user",
+      "name": "Ishwari",
+      "created_at": "2026-02-23T09:09:33.055130Z",
+      "updated_at": "2026-02-23T09:09:33.055130Z",
+      "is_active": true
+    },
+    {
+      "id": "7",
+      "email": "nishant2@gmail.com",
+      "username": "nishant2",
+      "password": "$2b$12$JTP8AqJCSp8GAaFlYRpzJeZKFQXIUkKl2EyPEtIyQAW6f319qngla",
+      "role": "user",
+      "name": "Nishant Khalkar",
+      "created_at": "2026-02-23T09:13:56.999277Z",
+      "updated_at": "2026-02-23T09:13:56.999277Z",
+      "is_active": true
+    },
+    {
+      "id": "8",
+      "email": "user2@gmail.com",
+      "username": "user2",
+      "password": "$2b$12$G/sep3/9FhfzMfqBPg8eIu8tsNVXrWoE4ZhaotzXyZEwJwcsto5lS",
+      "role": "user",
+      "name": "usertwo",
+      "created_at": "2026-02-23T09:26:45.770214Z",
+      "updated_at": "2026-02-23T09:26:45.770214Z",
+      "is_active": true
+    },
+    {
+      "id": "9",
+      "email": "user3@gmail.com",
+      "username": "user3",
+      "password": "$2b$12$PLKot/L0u9XsSZPcVX8HEeM8iQLcROTCiqHeaMDtyFnJFwRDUGKeu",
+      "role": "user",
+      "name": "userthree",
+      "created_at": "2026-02-23T09:27:44.558931Z",
+      "updated_at": "2026-02-23T09:27:44.558931Z",
+      "is_active": true
+    },
+    {
+      "id": "10",
+      "email": "nishant28@gmail.com",
+      "username": "Nishant",
+      "password": "$2b$12$2RrAR07B6sMUSWVScBBd2uAHh3921GcK83EUQCEEu1xByqRUboSYa",
+      "role": "user",
+      "name": "Nishant Khalkar",
+      "created_at": "2026-04-28T09:20:53.440400Z",
+      "updated_at": "2026-04-28T09:20:53.440400Z",
+      "is_active": true
+    },
+    {
+      "id": "11",
+      "email": "aaryan",
+      "username": "Aaryan",
+      "password": "$2b$12$C2SRXPzgNBLHnBr7PWBk0et5Ns0vowMQ3eGBumU3RCJTEY//2OqWy",
+      "role": "user",
+      "name": "Aaryan Kranti",
+      "created_at": "2026-04-30T06:31:56.426504Z",
+      "updated_at": "2026-04-30T06:31:56.426504Z",
+      "is_active": true
+    },
+    {
+      "id": "12",
+      "email": "atharva",
+      "username": "atharva",
+      "password": "$2b$12$xyWzxy4sh3XQ/vT6LZTFCeWYSeuLYZJH7DK7UVOFRMcpvuttYDIhy",
+      "role": "user",
+      "name": "atharva karpe",
+      "created_at": "2026-05-04T12:07:43.954628Z",
+      "updated_at": "2026-05-06T09:54:44.063266Z",
+      "is_active": true,
+      "langfuse_enabled": false
+    },
+    {
+      "id": "13",
+      "email": "pavan123@gmail.com",
+      "username": "pavan",
+      "password": "$2b$12$uvJKhBLH2mTAEWfryAwvmuqNSPo6fCvYMe5ieovQDVgSD9meTvu4C",
+      "role": "user",
+      "name": "kumar",
+      "created_at": "2026-05-06T10:03:40.083789Z",
+      "updated_at": "2026-05-06T10:04:21.717388Z",
+      "is_active": true,
+      "langfuse_enabled": true
+    }
+  ],
+  "roles": {
+    "admin": {
+      "description": "Full access to all features",
+      "permissions": [
+        "upload_files",
+        "delete_files",
+        "manage_users",
+        "view_analytics",
+        "export_data",
+        "configure_system"
+      ]
+    },
+    "user": {
+      "description": "Standard access - can upload and delete files",
+      "permissions": [
+        "upload_files",
+        "delete_files",
+        "view_analytics",
+        "export_data"
+      ]
+    }
+  }
+}
