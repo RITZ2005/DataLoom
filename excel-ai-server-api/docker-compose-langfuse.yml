@@ -7,7 +7,7 @@ version: '3.8'
 # - Worker    : added here (processes trace events from Redis queue)
 
 x-langfuse-env: &langfuse-env
-  DATABASE_URL: postgresql://postgres:postgres@pg16:5432/langfuse
+  DATABASE_URL: postgresql://postgres:pgvector@host.docker.internal:5433/langfuse
 
   # Auth — must match SECRET_KEY in FastAPI .env
   NEXTAUTH_SECRET: EXCEL_AI_SHARED_SECRET_KEY_987654321
