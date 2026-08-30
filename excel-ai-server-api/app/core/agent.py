@@ -136,8 +136,20 @@ class HybridAgent(
             "http://164.52.196.104:8084",
         )
         embedding_api_key = os.getenv("OPENWEBUI_API_KEY", "sk-default-key")
+        embedding_provider = os.getenv("EMBEDDING_PROVIDER", "auto").strip().lower()
 
-        if _is_ollama_url(embedding_base_url):
+        if embedding_provider == "openai":
+            # Cloud-compatible: works with OpenAI, Jina AI, Voyage AI, Together AI, etc.
+            from langchain_openai import OpenAIEmbeddings as _OpenAIEmbeddings
+            _emb_key = os.getenv("EMBEDDING_API_KEY", os.getenv("OPENAI_API_KEY", ""))
+            _emb_base = os.getenv("EMBEDDING_BASE_URL", "https://api.openai.com/v1")
+            logger.info(f"🧠 Embeddings provider: OpenAI-compatible ({_emb_base})")
+            self.embed_model = _OpenAIEmbeddings(
+                model=embedding_model,
+                openai_api_key=_emb_key,
+                openai_api_base=_emb_base,
+            )
+        elif _is_ollama_url(embedding_base_url):
             if not _LANGCHAIN_OLLAMA_AVAILABLE:
                 raise ModuleNotFoundError(
                     "langchain-ollama is required for Ollama embeddings. "
