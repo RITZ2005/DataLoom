@@ -26,7 +26,8 @@ class RedisSemanticCache:
         password: Optional[str],
         ttl_seconds: int,
         index_name: str = "semantic_cache_idx",
-        key_prefix: str = "semantic_cache:"
+        key_prefix: str = "semantic_cache:",
+        ssl: bool = False,
     ):
         self._available = False
         self.ttl_seconds = ttl_seconds
@@ -41,6 +42,7 @@ class RedisSemanticCache:
                 password=password,
                 decode_responses=False,
                 socket_connect_timeout=3,
+                ssl=ssl,
             )
             self.client.ping()
             # Verify RediSearch module is loaded (required for FT.* commands)

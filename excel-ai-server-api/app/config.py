@@ -129,12 +129,14 @@ def _try_redis_connect():
         return None
     _redis_connect_attempts += 1
     try:
+        _redis_ssl = os.getenv("REDIS_TLS", "false").strip().lower() in {"1", "true", "yes", "on"}
         client = redis.Redis(
             host=os.getenv("REDIS_HOST", "localhost"),
             port=int(os.getenv("REDIS_PORT", "6379")),
             password=os.getenv("REDIS_PASSWORD") or None,
             decode_responses=True,
-            socket_connect_timeout=3
+            socket_connect_timeout=3,
+            ssl=_redis_ssl,
         )
         client.ping()
         redis_client = client

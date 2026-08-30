@@ -148,6 +148,7 @@ class HybridAgent(
                 model=embedding_model,
                 openai_api_key=_emb_key,
                 openai_api_base=_emb_base,
+                check_embedding_ctx_length=False,  # Required for non-OpenAI providers (Jina, Voyage, etc.)
             )
         elif _is_ollama_url(embedding_base_url):
             if not _LANGCHAIN_OLLAMA_AVAILABLE:
@@ -353,6 +354,7 @@ class HybridAgent(
         ttl_seconds = int(os.getenv("REDIS_SEMANTIC_CACHE_TTL", "86400"))
         index_name = os.getenv("REDIS_SEMANTIC_CACHE_INDEX", "semantic_cache_idx")
         key_prefix = os.getenv("REDIS_SEMANTIC_CACHE_PREFIX", "semantic_cache:")
+        use_ssl = os.getenv("REDIS_TLS", "false").strip().lower() in {"1", "true", "yes", "on"}
 
         cache = RedisSemanticCache(
             host=host,
@@ -360,7 +362,8 @@ class HybridAgent(
             password=password,
             ttl_seconds=ttl_seconds,
             index_name=index_name,
-            key_prefix=key_prefix
+            key_prefix=key_prefix,
+            ssl=use_ssl,
         )
         try:
             cache.ensure_index(self.embedding_dim)
